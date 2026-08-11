@@ -1,15 +1,9 @@
-<p align="center">
-  <img src="https://img.shields.io/github/last-commit/SilinThoakes/DraCaveTitle?logo=artstation&style=for-the-badge&color=9266CC" />
-  <img src="https://img.shields.io/github/issues/SilinThoakes/DraCaveTitle?style=for-the-badge&logo=slashdot" />
-  <img src="https://img.shields.io/github/release/SilinThoakes/DraCaveTitle?style=for-the-badge&color=00C58E&logo=ionic" />
-</p>
-
-### 🔗 Links
+### 🔗 链接
 
 -   📖 教程: [MineBBS 帖子](https://www.minebbs.com/threads/dracavetitle-gui.48962/#post-229305)
 -   💬 测试群: `1101907336`
 
-### 🎯 Introduce
+### 🎯 简介
 
 DraCaveTitle 是一款面向 Paper 系服务端的动态称号插件，把「称号仓库 + 称号商店 + 自定义称号 + 管理面板」缝进了一个轻量插件里。
 
@@ -29,14 +23,14 @@ DraCaveTitle 是一款面向 Paper 系服务端的动态称号插件，把「称
 
 > 渐变支持单向循环 / 回弹两种流动模式，可在单个称号内覆盖动画周期、渐变循环时间、渐变粒度，兼顾丝滑与发包体积。
 
-### 🚀 Quick Start
+### 🚀 速速开始口牙
 
 1.  确保已安装前置 PlaceholderAPI 及 Tab 显示插件
 2.  在对应位置使用变量符号放置称号
 3.  加载插件后需管理员手动上传称号列表（可通过管理 GUI 直接上传）
 4.  编辑 `titles.yml` 跟随注释自定义，或直接在 GUI 管理面板中修改
 
-### ⌨️ Commands
+### ⌨️ 命令
 
 | 命令 | 说明 |
 | :--- | :--- |
@@ -67,7 +61,7 @@ DraCaveTitle 是一款面向 Paper 系服务端的动态称号插件，把「称
 | `/dctitle convert <MYSQL\|SQLITE>` | 转换存储类型 |
 | `/dctitle reload` | 重载配置 |
 
-### 🔐 Permissions
+### 🔐 权限表
 
 | 权限节点 | 说明 | 默认 |
 | :--- | :--- | :--- |
@@ -82,7 +76,7 @@ DraCaveTitle 是一款面向 Paper 系服务端的动态称号插件，把「称
 | `dracave.title.*` | 全部权限 | OP |
 | `ttt.use` | PlayerTitle 数据迁移 | OP |
 
-### 📊 Placeholders
+### 📊 变量
 
 | 变量 | 说明 |
 | :--- | :--- |
@@ -93,8 +87,6 @@ DraCaveTitle 是一款面向 Paper 系服务端的动态称号插件，把「称
 | `%dracavetitle_title_id%` | 当前称号 ID |
 | `%dracavetitle_has_title%` | 是否穿戴 (true/false) |
 | `%dracavetitle_coin%` | 称号币余额 |
-
-### 📊 bStats
 
 <p align="center">
   <img src="https://bstats.org/signatures/bukkit/DraCaveTitle.svg" />
