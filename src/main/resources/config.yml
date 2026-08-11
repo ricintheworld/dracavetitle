@@ -1,0 +1,93 @@
+# ==================== DraCaveTitle 主配置 ====================
+# 默认 SQLite，单机开箱即用；跨服/生产环境建议 MySQL。
+
+storage:
+  # SQLITE 或 MYSQL（不填默认 SQLITE）
+  type: SQLITE
+  # 定时从共享存储拉取在线玩家穿戴状态，保证跨服切服后称号跟随（单位：游戏刻）
+  # 跨服场景下多端必须指向同一个数据库，本项负责最终一致性校准
+  sync-interval-ticks: 200
+  mysql:
+    host: "127.0.0.1"
+    port: 3306
+    database: "minecraft"
+    user: "root"
+    password: ""
+    params: "?useSSL=false&characterEncoding=utf8&serverTimezone=UTC&allowPublicKeyRetrieval=true"
+    table-prefix: "dracavetitle_"
+    pool-size: 4
+  sqlite:
+    file: "data.db"
+
+purchase:
+  enabled: true
+  # 购买成功后是否自动穿戴
+  auto-equip: true
+  # 防重复点击：单玩家单称号并发购买互斥
+  currencies:
+    vault:
+      display: "<green>金币</green>"
+    playerpoints:
+      display: "<aqua>点券</aqua>"
+    coin:
+      display: "<gold>称号币</gold>"
+    item:
+      display: "<yellow>物品</yellow>"
+
+gui:
+  title: "<gradient:#7AFBFF:#B97AFF>称号仓库</gradient>"
+  previous-slot: 45
+  status-slot: 48
+  next-slot: 53
+  purchase-confirm:
+    title: "<gold>确认购买称号</gold>"
+    size: 27
+    title-slot: 13
+    confirm-slot: 11
+    cancel-slot: 15
+    confirm-material: LIME_CONCRETE
+    cancel-material: RED_CONCRETE
+  # GUI 音效，支持原版 Sound 枚举名或命名空间字符串（如 mypack:custom.click）
+  # 留空则静音；版本不存在的枚举名会自动跳过，不会报错
+  sounds:
+    open: BLOCK_NOTE_BLOCK_PLING
+    click: UI_BUTTON_CLICK
+    switch-page: BLOCK_NOTE_BLOCK_BASS
+    success: ENTITY_PLAYER_LEVELUP
+    error: BLOCK_NOTE_BLOCK_BASS
+    delete: BLOCK_NOTE_BLOCK_BASEDRUM
+
+# 称号显示：称号只作为变量（%dracavetitle_title% 等占位符）存在，
+# 插件不拦截/修改聊天消息，也不改动 TAB/头顶显示——请在你的聊天/TAB 插件中使用占位符展示。
+display:
+  # 切换称号冷却（秒），0 为关闭
+  toggles-cooldown: 10
+
+# 动画默认周期（游戏刻），可在单个称号内覆盖
+animation:
+  default-period-ticks: 40
+  # 帧步长：动画每隔多少刻才换一帧。1 = 每刻一帧（最丝滑，占位符值每刻都变）。
+  # 调大能让上游 TAB/聊天插件轮询到相同字符串从而跳过发包，2~3 肉眼几乎无差别。
+  frame-step-ticks: 2
+  # 渐变粒度：每多少个字符共用一个颜色。1 = 逐字上色。
+  # 每个颜色标签转成 legacy 后是 14 字节，调到 2 能把渐变称号的包体积砍掉约一半。
+  gradient-char-step: 1
+
+# 自定义称号规则
+custom-titles:
+  enabled: true
+  text:
+    max-length: 16
+  dynamic:
+    min-period-ticks: 5
+    max-period-ticks: 200
+    max-colors: 5
+    max-text-frames: 10
+  filter:
+    blocked-words: []
+
+# 支持MiniMessag，使用TrChat或者CMI ESS等插件拦截聊天请设置为false
+chat:
+  enabled: true
+  default-title: "[ 旅行者 ]"
+  format: "{title} {player} »"
