@@ -88,11 +88,5 @@ DraCaveTitle 是一款面向 Paper 系服务端的动态称号插件，把「称
 | `%dracavetitle_has_title%` | 是否穿戴 (true/false) |
 | `%dracavetitle_coin%` | 称号币余额 |
 
-<p align="center">
-  <img src="https://bstats.org/signatures/bukkit/DraCaveTitle.svg" />
-</p>
-
-### 🚩 License
-
 尽管 DraCaveTitle 是免费开源插件，你可以自由下载、编译、使用。
 但如果你愿意通过赞助支持项目持续开发，我将非常感谢。
